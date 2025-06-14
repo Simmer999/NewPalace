@@ -9,8 +9,17 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const THREE = require('three')
 
-// const db = require('./config/config')
-// db()
+// const mongoose = require('mongoose')
+// mongoose.connect(process.env.DB, {
+//     useNewUrlParser: true, 
+//     useUnifiedTopology : true
+// })
+// const db = mongoose.connection
+// db.on('error', console.log.bind(console, 'connection error'))
+// db.once('open', (callback) => {
+//     console.log('Connected to MongoDB #1.')
+// })
+
 
 app.set('view engine', 'ejs')
 app.set('views', (path.join(__dirname, 'views')))
@@ -46,17 +55,11 @@ app.use((req, res, next) => {
 // app.use('/', require('./api/routes/index'))
 // app.use('/users', require('./api/routes/users'))
 
-// app.get("/noteTaker", (req, res) =>{
-//     res.render("members/getPages/noteTaker")
-// })
-// app.get("/", (req, res) =>{
-//     res.render("index")
-// // console.log('hello world')
-// })
-console.log("Hey! what's going on?")
 app.get("/", (req, res) =>{
     res.render("index")
 })
 
-
-
+const port = process.env.PORT || 5555
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})

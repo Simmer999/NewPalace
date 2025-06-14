@@ -2,10 +2,10 @@
   "name": "june11",
   "version": "1.0.0",
   "description": "This new repository is for learning GIT agian.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon node server.js"
   },
   "keywords": [],
   "author": "",

@@ -6,6 +6,7 @@ const ejs = require('ejs')
 const path = require('path')
 const bodyParser = require('body-parser')
 
+app.use('/', require('./routes/routes'))
 
 app.set('view engine', 'ejs')
 app.set('views', (path.join(__dirname, 'views')))

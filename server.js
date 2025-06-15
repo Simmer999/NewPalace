@@ -7,5 +7,3 @@ const port = process.env.PORT || 5553
 
 server.listen(port)
 console.log(`Listeningggg on port ${port}.`)
-
-console.log("Hey! what's going on?")

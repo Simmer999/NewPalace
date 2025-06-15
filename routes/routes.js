@@ -11,6 +11,9 @@ routes.get("/collections", (req, res) =>{
 routes.get('/books', (req, res) => {
     res.render('books')
 })
+routes.get('/bookDetails', (req, res) => {
+    res.render('bookDetails')
+})
 routes.get('/poems', (req, res) => {
     res.render('poems')
 })

@@ -53,3 +53,14 @@ a {
     align-items:center;
     background-color: blue;
 }
+.purpleBox {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+    margin-top: 20vh;
+    margin-bottom: 30px;
+    max-height: 400px;
+    overflow: scroll;
+    width: 60%;
+    border: 3px solid purple;
+    padding: 30px;
+}

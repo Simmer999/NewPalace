@@ -23,6 +23,9 @@ app.use('/', require('./routes/mongoose'))
 app.use(express.static(__dirname + '/'));
 app.use('/', require('./routes/routes'))
 app.use('/', require('./routes/books'))
+app.use('/', require('./routes/poems'))
+app.use('/', require('./routes/essayCols'))
+app.use('/', require('./routes/movies'))
 
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json())

@@ -1,12 +1,16 @@
 html  {
     height: 100%;
 }
-body { 
+body {
     min-height: 100%;
     margin: 0; 
     overflow: hidden; 
     background-color: #00000f;
     position: relative;
+}
+form {
+    overflow: scroll;
+    height: 100vh;
 }
 .centralEnter {
     position: absolute;

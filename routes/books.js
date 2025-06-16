@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-
-console.log('Here?')//           <----------------------
 const mongoose = require('mongoose')
-// .set('debug', true)
+
 const db = mongoose.connection;
 db.on('error', console.log.bind(console, 'connection error'))
 db.once('open', (callback) => {
     console.log('Connected to MongoDB #Books.')//           <----------------------
 })
+
+
+
+
 
 router.get('/retrieved_books', (req, res) => {
     db.collection('Books')// See const users = db.collection('users')
@@ -19,6 +21,7 @@ router.get('/retrieved_books', (req, res) => {
         //In order to print the contents of the database to the console:
         // console.log(results)
         res.render('retrieved_books', { Books: results })// Books vs entries
+        // console.log(results)
     })
     .catch(error => console.error(error))
 })

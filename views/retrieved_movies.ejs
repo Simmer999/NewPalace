@@ -1,0 +1,27 @@
+<%- include('./partials/head'); %>
+<section style=" background-color:red">
+ 
+    <form   class="title" method="PATCH">
+        <h2>Retrieved Movies</h2>
+        <br>
+        <br>
+        <ul>
+        <% for( var i = 0; i < movies.length; i++) { %>
+            <li>
+                <span><%= movies[i].title %> </span>
+                <br>
+                <span><%= movies[i].year %></span>
+                <br>
+                <span><%= movies[i].poster %></span>
+                <br>
+                <span><%= movies[i].fullplot %></span>
+                <br>
+                <span><%= movies[i].genres %></span>
+            </li>
+            <br>
+            <% } %>
+            <br>
+        </ul>
+    </form>
+</section>
+<%- include('./partials/footer'); %>

@@ -20,6 +20,9 @@ routes.get('/poems', (req, res) => {
 routes.get('/essays', (req, res) => {
     res.render('essays')
 })
+routes.get('/sample', (req, res) => {
+    res.render('sample')
+})
 
 
 module.exports = routes

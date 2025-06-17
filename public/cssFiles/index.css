@@ -12,6 +12,9 @@ form {
     overflow: scroll;
     height: 100vh;
 }
+.title {
+    scrollbar-color: red;
+}
 .centralEnter {
     position: absolute;
     height: 20px;
@@ -57,7 +60,7 @@ a {
     align-items:center;
     background-color: blue;
 }
-.purpleBox {
+/* .purpleBox {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: auto;
     margin-top: 20vh;
@@ -67,4 +70,13 @@ a {
     width: 60%;
     border: 3px solid purple;
     padding: 30px;
+} */
+section {
+    background-color:red;
 }
+::-webkit-scrollbar-track {
+    background: red;
+}
+::-webkit-scrollbar-thumb {
+    background: blue; 
+  }

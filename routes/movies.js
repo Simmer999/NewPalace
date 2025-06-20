@@ -20,7 +20,7 @@ router.get('/retrieved_movies', (req, res) => {
     .skip(22000)
     .toArray()
         .then(results => {
-            res.render('retrieved_movies', { movies: results })
+            res.render('retrieved/retrieved_movies', { movies: results })
             // console.log({results})
         })
     .catch(error => console.error(error))
@@ -29,9 +29,7 @@ router.get('/retrieved_movies', (req, res) => {
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());    
 
-router.get('/movies', (req, res) => {
-    res.render('movies')
-})
+
 
 
 

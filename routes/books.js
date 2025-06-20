@@ -20,7 +20,7 @@ router.get('/retrieved_books', (req, res) => {
     .then(results => {
         //In order to print the contents of the database to the console:
         // console.log(results)
-        res.render('retrieved_books', { Books: results })// Books vs entries
+        res.render('retrieved/retrieved_books', { Books: results })// Books vs entries
         // console.log(results)
     })
     .catch(error => console.error(error))

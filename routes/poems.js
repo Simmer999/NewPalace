@@ -13,14 +13,14 @@ var db = mongoose.connection;
 
 
 
-router.get('/retrieved_poem', (req, res) => {
+router.get('/retrieved_poems', (req, res) => {
     db.collection('Poems')
     .find()
     .toArray()
     .then(results => {
         //In order to print the contents of the database to the console:
         // console.log(results)
-        res.render('retrieved_poem', { poems: results })  
+        res.render('retrieved/retrieved_poems', { poems: results })  
     })
     .catch(error => console.error(error))
 })

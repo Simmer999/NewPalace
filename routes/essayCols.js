@@ -1,10 +1,32 @@
 const express = require('express')
 const router = express.Router()
-
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 var db=mongoose.connection
+
+
+
+
+
+
+
+
+
+router.get('/retrieved_essayCols', (req, res) => {
+    db.collection('essayCollections')
+    .find()
+    .toArray()
+    .then(results => {
+        //In order to print the contents of the database to the console:
+        // console.log(results)
+        res.render('retrieved/retrieved_essayCols', { essayCollections: results })  
+    })
+    .catch(error => console.error(error))
+})
+
+
+
 
 
 
@@ -29,17 +51,7 @@ router.get('/essayCols', (req, res) => {
 })
 
 //====================================================================== GET method
-router.get('/retrieved_essayCols', (req, res) => {
-    db.collection('essayCollections')
-    .find()
-    .toArray()
-    .then(results => {
-        //In order to print the contents of the database to the console:
-        // console.log(results)
-        res.render('retrieved_essayCols', { essayCollections: results })  
-    })
-    .catch(error => console.error(error))
-})
+
 //====================================================================== GET method
 
 

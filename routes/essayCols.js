@@ -25,19 +25,9 @@ router.get('/retrieved_essayCols', (req, res) => {
     .catch(error => console.error(error))
 })
 
-
-
-
-
-
-
-
-
-
-
-
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const essayCols = require('../models/essayCols');
 

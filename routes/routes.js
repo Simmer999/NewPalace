@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router()
 
-
+// get routes
 routes.get("/index", (req, res) =>{
     res.render("index")
 })
@@ -17,11 +17,20 @@ routes.get('/essays', (req, res) => {
 routes.get('/movies', (req, res) => {
     res.render('databases/movies')
 })
-routes.get('/sample', (req, res) => {
-    res.render('sample')
-})
+
+//post routes
+
+
+module.exports = routes
+
+
+
+
+
+
+
+
+
 routes.get('/collections', (req, res) => {
     res.render('collections')
 })
-
-module.exports = routes

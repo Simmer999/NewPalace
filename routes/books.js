@@ -21,13 +21,13 @@ router.get('/retrieved_books', (req, res) => {
         //In order to print the contents of the database to the console:
         // console.log(results)
         res.render('retrieved/retrieved_books', { Books: results })// Books vs entries
-        // console.log(results)
     })
     .catch(error => console.error(error))
 })
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const Book = require('../models/books');
 

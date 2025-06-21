@@ -17,7 +17,7 @@ const BookSchema = new Schema({
         type: String,
         required: true
     } ,
-    contents: {
+    body: {
         type: String,
         required: true
     }

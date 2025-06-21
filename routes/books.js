@@ -139,18 +139,19 @@ router.get('/bookPresentation', (req, res) => {
 //     console.log(req.body)
 // })
 
-//==================================================== POST for newBook
+//==================================================== POST for newBook<----Good
 router.post('/newbook', (req, res) => {
     const book = new Book(req.body)
     book.save()
     .then((result) => {
-        res.render('corePages/directory')
+        res.render('index')
     })
+    //This function has been updated and it works. June20.
     .catch(err => {
         console.log(err)   
     })
 })
-//==================================================== POST for newBook
+//==================================================== POST for newBook<----Good
 //==================================================== POST for newBook
 router.post('/book_update', (req, res) => {
     const book = new Book(req.body)

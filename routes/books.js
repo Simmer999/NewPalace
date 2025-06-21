@@ -27,6 +27,24 @@ router.get('/retrieved_books', (req, res) => {
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+
+router.get('/bookPresentation', (req, res) => {
+    db.collection('Books')
+    .find()
+    .toArray()
+    .then(results => {
+        //In order to print the contents of the database to the console:
+        // console.log(results)
+        res.render('retrieved/bookPresentation', { Books: results })  
+    })
+    .catch(error => console.error(error))
+})
+
+
+
+
+
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const Book = require('../models/books');
@@ -176,6 +194,25 @@ router.delete('/Books/:id', (req, res) => {
         res.status(500).send(error);
     })
 })
+
+router.get('/updatePages/updateBook', (req, res) => {
+    // Books.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((book) => {
+    //     if (!book) {
+    //         return res.status(404).send();
+    //     }
+        res.render('updatePages/updateBook');
+    // }).catch(error => {
+    //     res.status(500).send(error);
+//     })
+})
+
+router.get('/members/updatePages/book_update', (req, res) => {
+        res.render('members/updatePages/book_update');
+})
+
+
+
+
 
 module.exports = router;
 

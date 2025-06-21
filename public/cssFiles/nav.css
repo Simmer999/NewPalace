@@ -9,26 +9,13 @@ nav {
     justify-content:center;
     align-items:center;
 }
-/* .navBox {
-    position: absolute;
-    height: 20px;
-    width: 60px;
-    top: 50%;
-    left: 50%;
-    display: block;
-    justify-content:center;
-    align-items:center;
-} */
 .navButtons {
     position: relative;
     margin: 5px;
     height: 20px;
     width: 60px;
-    /* top: 50%;
-    left: 50%; */
     display: inline-flex;
     justify-content:center;
     align-items:center;
     background-color: blue;
-    /* display: inline-flex; */
 }

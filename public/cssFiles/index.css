@@ -31,6 +31,9 @@ a {
     color: white;
     text-decoration: none;
 }
+.booktitle {
+    color: blue;
+}
 h1, h2, h4, p {
     margin: 0%;
 }

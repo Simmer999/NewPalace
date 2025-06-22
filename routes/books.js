@@ -119,7 +119,7 @@ router.get('/Books/:id', (req, res) => { //Same as
     console.log('Arrrgh!');
     Book.findById(id)
     .then(result => {
-        res.render('members/updatePages/book_update', { Books: result});
+        res.render('updatePages/updateBook', { Books: result});
         console.log(result)
     })
     .catch(err => {

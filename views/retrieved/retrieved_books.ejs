@@ -8,7 +8,8 @@
         <ul>
         <% for( var i = 0; i < Books.length; i++) { %>
             <li>
-                <span><%= Books[i].title %> </span>
+                <a class="booktitle" href="bookTitle"><span><%= Books[i].title %> </span></a>
+                
                 <br>
                 <span><%= Books[i].author %></span>
                 <br>

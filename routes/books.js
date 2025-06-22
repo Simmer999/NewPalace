@@ -6,14 +6,16 @@ const mongoose = require('mongoose')
 const db = mongoose.connection;
 db.on('error', console.log.bind(console, 'connection error'))
 db.once('open', (callback) => {
-    console.log('Connected to MongoDB #Books.')//           <----------------------
+    console.log('Connected to MongoDB #Books from routes/book.js.')//           <----------------------
 })
 
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
 
 
-
-router.get('/retrieved_books', (req, res) => {
+router.get('/retrieved_books', (req, res) => { 
+//This is the entire books collection including contents.
     db.collection('Books')// See const users = db.collection('users')
     .find()
     .toArray()
@@ -25,10 +27,10 @@ router.get('/retrieved_books', (req, res) => {
     .catch(error => console.error(error))
 })
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
 
-router.get('/bookPresentation', (req, res) => {
+
+router.get('/bookPresentation', (req, res) => { 
+//This is the alternate book collction format from June19 'crud'.
     db.collection('Books')
     .find()
     .toArray()
@@ -116,11 +118,11 @@ router.get('/Bookss/:id', (req, res) => { //Same as
 //==================================================== Turn on and off.
 router.get('/Books/:id', (req, res) => { //Same as 
     const id = req.params.id;
-    console.log('Arrrgh!');
+    // console.log('Arrrgh!');
     Book.findById(id)
     .then(result => {
         res.render('updatePages/updateBook', { Books: result});
-        console.log(result)
+        // console.log(result)
     })
     .catch(err => {
         console.log(err)

@@ -35,7 +35,7 @@ const poems = require('../models/poems');
 
 
 
-console.log("here?")
+
 
 // 20=================== Standard GET and POST.
 // router.get('/poems', (req, res) => {

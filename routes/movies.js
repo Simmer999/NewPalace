@@ -10,7 +10,7 @@ MongoClient.connect(process.env.MDB, {
              
             const movies = db.collection('movies');
             const users = db.collection('users')
-console.log('Connected to movies database.')
+console.log('Connected to movies database from routes/movies.js.')
 
                     
 router.get('/retrieved_movies', (req, res) => {

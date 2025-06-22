@@ -17,7 +17,7 @@ mongoose.connect(process.env.DB, {
 const db = mongoose.connection
 db.on('error', console.log.bind(console, 'connection error'))
 db.once('open', (callback) => {
-    console.log('Connected to MongoDB #1.')//           <----------------------
+    console.log('Connected to MongoDB #1 from routes/mongoose.js.')//           <----------------------
 })
 
 router.get('/', (req, res) => {

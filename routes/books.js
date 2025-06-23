@@ -12,8 +12,29 @@ db.once('open', (callback) => {
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
+const Book = require('../models/books');
+const Books = db.collection('Books')    //These are the names of the collections in the database.
 
 
+
+
+
+
+//==================================================================== GETs 
+router.get('/books', (req, res) => {
+    res.render('newPages/newBook')
+})
+
+router.get('/newBook', (req, res) => {
+    Books.find().toArray()
+    .then(results =>{
+        res.render('newPages/newBook', { entries : results})
+    })
+    .catch(error => console.error(error))
+})
+//==================================================================== GETs
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/retrieved_books', (req, res) => { 
 //This is the entire books collection including contents.
     db.collection('Books')// See const users = db.collection('users')
@@ -26,8 +47,6 @@ router.get('/retrieved_books', (req, res) => {
     })
     .catch(error => console.error(error))
 })
-
-
 
 router.get('/bookPresentation', (req, res) => { 
 //This is the alternate book collction format from June19 'crud'.
@@ -42,16 +61,8 @@ router.get('/bookPresentation', (req, res) => {
     .catch(error => console.error(error))
 })
 
-
-
-
-
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-const Book = require('../models/books');
-
-const Books = db.collection('Books')    //These are the names of the collections in the database.
 
 // Book.findOneAndUpdate({title: 'New Title'}, {title: 'Democracy: A Very Short Introduction'}, {new: true}, (error, data) => {
 // Book.findOneAndUpdate({title: 'New Title'}, {title: 'Democracy: A Very Short Introduction'}, {new: true}, (error, data) => {
@@ -85,19 +96,7 @@ const Books = db.collection('Books')    //These are the names of the collections
 
 
 
-//==================================================================== GETs 
-router.get('/books', (req, res) => {
-    res.render('newPages/newBook')
-})
 
-router.get('/newBook', (req, res) => {
-    Books.find().toArray()
-    .then(results =>{
-        res.render('newPages/newBook', { entries : results})
-    })
-    .catch(error => console.error(error))
-})
-//==================================================================== GETs
 
 //==================================================== Code for bookDetails
 router.get('/Bookss/:id', (req, res) => { //Same as 
@@ -114,15 +113,16 @@ router.get('/Bookss/:id', (req, res) => { //Same as
 })
 })
 //==================================================== Code for bookDetails
+
+
 //==================================================== Code for book_update
-//==================================================== Turn on and off.
 router.get('/Books/:id', (req, res) => { //Same as 
     const id = req.params.id;
-    // console.log('Arrrgh!');
     Book.findById(id)
     .then(result => {
         res.render('updatePages/updateBook', { Books: result});
         // console.log(result)
+        console.log('Aaaaah!');
     })
     .catch(err => {
         console.log(err)
@@ -177,7 +177,7 @@ router.post('/book_update', (req, res) => {
     const book = new Book(req.body)
     book.save()
     .then((result) => {
-        res.render('members/directory')
+        res.render('index')
     })
     .catch(err => {
         console.log(err)   
@@ -213,6 +213,33 @@ router.get('/members/updatePages/book_update', (req, res) => {
 })
 
 
+
+
+
+router.get('/updateBook', (req, res) => {
+    if(!req.body){
+        return res
+            .status(400)
+            .send({ message : "Data to update can not be empty"})
+    }
+    const id = req.params.id;
+    console.log(id)
+    Book.findByIdAndUpdate(id, req.body, { useFindAndModify: true})
+        .then(data => {
+            if(!data){
+                res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
+            }else{
+                res.send(data)
+            }
+        })
+    .then((result) => {
+        res.render('index')
+    })
+    
+    .catch(err => {
+        console.log(err)   
+    })
+})
 
 
 

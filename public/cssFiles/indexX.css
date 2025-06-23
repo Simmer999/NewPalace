@@ -1,0 +1,79 @@
+html  {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    margin: 0; 
+    overflow: hidden; 
+    background-color: #00000f;
+    position: relative;
+}
+form { 
+    padding-top: 100px;    
+    overflow: scroll;       
+    background-color:red;
+    scrollbar-color: blue red;
+    height: 100vh;
+    padding-bottom: 100px;
+}
+section {
+    padding-left: 20%;
+    overflow: auto;
+    background-color:red;
+    scrollbar-color: blue red;
+    height: 100vh;
+}
+.centralEnter {
+    position: relative;
+    height: 20px;
+    width: 100px;
+    margin-bottom: 5px;
+    top: 50%;
+    margin-left: 45%;
+    display: inline-flex;
+    justify-content:center;
+    align-items:center;
+    background-color: darkred;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+.booktitle {
+    color: blue;
+}
+#contentInput {
+    height: 100px;
+    width: 300px;
+}
+h1, h2, h4, p {
+    margin: 0%;
+}
+.bookTitle {
+    color: #00000f;
+}
+.centralButtonBox {
+    margin-top: 30%;
+}
+.collectionsButtonsBox {
+    position: absolute;
+    height: 20px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    display: block;
+    justify-content:center;
+    align-items:center;
+}
+.collectionsButtons {
+    position: relative;
+    margin: 5px;
+    height: 20px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    background-color: blue;
+}

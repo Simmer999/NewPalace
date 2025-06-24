@@ -6,10 +6,12 @@
         <br>
         <br>
         <ul>
+            <H2>All Books</H2>
         <% for( var i = 0; i < Books.length; i++) { %>
             <li>
-                <a class="bookTitle" href="<%= Books[i]._id %>"><span><%= Books[i].title %> </span></a>
-                
+                <a class="bookTitle" href="/Books/<%= Books[i]._id %>">
+                    <h4><span><%= Books[i].title %> </span></h4>
+                </a>
                 <br>
                 <span><%= Books[i].author %></span>
                 <br>
